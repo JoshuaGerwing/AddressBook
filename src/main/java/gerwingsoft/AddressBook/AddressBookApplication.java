@@ -20,8 +20,8 @@ public class AddressBookApplication {
 		return (args) -> {
 			// save a few book
 			AddressBook book = new AddressBook();
-			book.addBuddyInfo(new BuddyInfo("josh", "4435353534563"));
-			book.addBuddyInfo(new BuddyInfo("an", "436345345"));
+			book.addBuddyInfo(new BuddyInfo("josh", "4435353534563", "testAddr"));
+			book.addBuddyInfo(new BuddyInfo("an", "436345345", "testAddr2"));
 			repository.save(book);
 
 			// fetch all customers

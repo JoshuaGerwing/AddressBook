@@ -24,4 +24,11 @@ public class AddressBookApplicationTests {
 		this.mockMvc.perform(get("/createAddressBook")).andDo(print()).andExpect(status().isOk())
 				.andExpect(content().string(containsString("{\"id\":4,\"buddyInfoList\":[]}")));
 	}
+
+	@Test
+	public void testAddressField() throws Exception {
+		this.mockMvc.perform(get("/createAddressBook"));
+		this.mockMvc.perform(get("/addBuddyInfo?bookId=4&name=\"d\"&phoneNumber=\"3\"&address=\"123lane\"")).andDo(print()).andExpect(status().isOk())
+				.andExpect(content().string(containsString("\"address\":\"\\\"123lane\\\"\"")));
+	}
 }

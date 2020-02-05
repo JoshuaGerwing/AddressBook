@@ -19,9 +19,9 @@ public class AddressBookController {
     }
 
     @GetMapping("/addBuddyInfo")
-    public AddressBook addBuddyInfo(@RequestParam(value = "bookId") int bookId, @RequestParam(value = "name") String name, @RequestParam(value = "phoneNumber") String phoneNumber) {
+    public AddressBook addBuddyInfo(@RequestParam(value = "bookId") int bookId, @RequestParam(value = "name") String name, @RequestParam(value = "phoneNumber") String phoneNumber, @RequestParam(value = "address") String address) {
         AddressBook addressBook = addressBookRepository.findById(bookId);
-        addressBook.addBuddyInfo(new BuddyInfo(name, phoneNumber));
+        addressBook.addBuddyInfo(new BuddyInfo(name, phoneNumber, address));
         addressBookRepository.save(addressBook);
         return addressBook;
     }
